@@ -1,0 +1,181 @@
+{% if messg %}
+<script>
+    alert('{{ messg }}');
+</script>
+{% endif %}
+{% load static %}
+<!DOCTYPE html>
+  <html>
+    <head><title>Register-Blood Donation</title>
+      <meta name="author" content="Shebin Silvister">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+     <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
+      <!--Let browser know website is optimized for mobile-->
+      <link rel="stylesheet" href="{% static "bdp/css/style.css" %}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body background="{% static "bdp/img/bg.jpg" %}">
+
+
+      <!-- THIS IS THE HEADING PART________DO NOT CHANGE -->
+      <div id="login-page" class="row" style="background-color:red" >
+     <div class="col s12 z-depth-6 card-panel" style="background-color:#ff5555">
+
+
+           <div class="input-field col s3" >
+             <img src="{% static "bdp/img/01.png" %}" style="height:75%;width:75%;" class="responsive-img valign profile-image-login">
+           </div>
+            <div class="input-field col s8" ><br><br>
+             <span class="center" style="color:white;font-weight:bold;font-size:375%;font-family: 'Wendy One', sans-serif;">DONATE BLOOD. SAVE LIVES.</span>
+           </div>
+
+       </div>
+     </div>
+      <!-- END OF HEADING PART________DO NOT CHANGE -->
+      <br><br>
+      <div style="border:2px solid black;border-radius:5%;box-shadow:5px 5px 8px #000;background-color:#ff6666;" class="container" >
+<br><br>
+<div class="container" >
+<button style="margin-left:14%" class="waves-effect waves-light red btn-large container " onclick="donor_reg()"><i class="material-icons left" >how_to_reg</i>REGISTRATION FOR DONORS</button>
+</div>
+
+      <div class="container" id="set1" style="display:none" >
+      <form class="col s12" action="/postsignup1/" method="post">
+        {% csrf_token %}
+      <div class="row">
+
+        <input type="hidden" value="1" name="set" >
+
+      <div class="input-field col s6">
+        <input placeholder="First Name" name="first_name" type="text" class="validate">
+
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="Last Name" name="last_name" type="text" class="validate">
+
+      </div>
+
+      <div class="input-field col s6">
+
+        <input type="number" class="validate" placeholder="Age" name="textWeight" id="txtWeight" minlength="18" maxlength="65" onkeyup="this.value = minmax(this.value, 15, 65)"/>
+
+      </div><div class="col s8" style="font-weight:bold;color:red">&nbsp&nbsp&nbsp(Age should be between 15 and 65)<br><br></div>
+
+
+    <div class="input-field col s8">
+      <input placeholder="Blood Group" name="blood_group" type="text" class="validate">
+
+    </div>
+    <br>
+      <div class="input-field col s8">
+        <input placeholder="Last donated" name="date" type="date" class="validate"><div class="col s12" style="font-weight:bold;color:red">(Leave it blank if you have never donated)<br><br></div>
+
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="Contact Number" name="contact_number" type="text" class="validate">
+
+      </div>
+      <div class="input-field col s12">
+                <input placeholder="Email" name="email" type="email" class="validate">
+          <label for="email" data-error="wrong" data-success="right"></label>
+
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Password" name="password" type="password" class="validate">
+
+      </div>
+
+
+
+    </div>
+    <button type="submit" class="waves-effect waves-light red btn-large">SUBMIT</button>
+
+    </form>
+    </div>
+
+
+
+<br><br>
+          <div class="container">
+          <button style="margin-left:14%" class="waves-effect waves-light red btn-large container" onclick="hospital_reg()"><i class="material-icons left" >how_to_reg</i>REGISTRATION FOR HOSPITALS</button>
+          </div>
+<br><br>
+    <div class="container" id="set2" style="display:none" >
+    <form class="col s12" action="/postsignup2/" method="post">
+      {% csrf_token %}
+    <div class="row">
+
+    <div class="input-field col s6">
+      <input placeholder="Hospital Name" name="hname" type="text" class="validate">
+
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="Address" name="address" type="text" class="validate">
+
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="People in charge" name="people" type="number" class="validate">
+
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="Average blood required per month (litres)" name="blood_required" type="number" class="validate">
+
+    </div>
+    <div class="input-field col s12">
+
+      <input placeholder="Email" name="email" type="email" class="validate">
+        <label for="email" data-error="wrong" data-success="right"></label>
+
+    </div>
+    <div class="input-field col s12">
+      <input placeholder="Password" name="password" type="password" class="validate">
+
+    </div>
+  </div>
+  <button type="submit" class="waves-effect waves-light red btn-large">SUBMIT</button>
+<br><br>
+    </form>
+    </div>
+    <div class="row" style="align: right">
+      <button style="align: right" class="waves-effect waves-light red btn-large">SIGNIN</button>
+  </div>
+</div>
+<br><br>
+<div class="row center">
+<hr>
+<h6 style="font-weight:bold;color:white">&copy; 2018<br> Developed and designed by Shebin Silvister</h56>
+</div>
+
+
+      <!--JavaScript at end of body for optimized loading-->
+<script src="phoneno-international-format.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+  <script>
+  function donor_reg()
+  {document.getElementById('set2').style.display='none';
+  document.getElementById('set1').style.display='block';
+  }
+  function hospital_reg()
+{
+  document.getElementById('set1').style.display='none';
+  document.getElementById('set2').style.display='block';
+  }
+
+  </script>
+  <script type="text/javascript">
+function minmax(value, min, max)
+{
+    if(parseInt(value) < min || isNaN(parseInt(value)))
+        return 0;
+    else if(parseInt(value) > max)
+        return 100;
+    else return value;
+}
+</script>
+    </body>
+  </html>

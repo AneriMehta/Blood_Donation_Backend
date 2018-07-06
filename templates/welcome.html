@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Sign in-Blood Donation</title>
+
+        <meta name="author" content="Shebin Silvister">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
+      <!--Let browser know website is optimized for mobile-->
+<link rel="stylesheet" href="{% static "bdp/css/style.css" %}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body background="{% static "bdp/img/bg.jpg" %}">
+      <div>
+        <button type="button" style="align: right" class="waves-effect waves-light red btn-large container" onclick="location.href='{% url 'log' %}'">Logout</button>
+      </div>
+
+      <!-- THIS IS THE HEADING PART________DO NOT CHANGE -->
+      <div id="login-page" class="row" style="background-color:red" >
+     <div class="col s12 z-depth-6 card-panel" style="background-color:#ff5555">
+
+
+           <div class="input-field col s3" >
+             <img src="img/01.png" style="height:75%;width:75%;" class="responsive-img valign profile-image-login">
+           </div>
+            <div class="input-field col s8" ><br><br>
+             <span class="center" style="color:white;font-weight:bold;font-size:375%;font-family: 'Wendy One', sans-serif;">DONATE BLOOD. SAVE LIVES.</span>
+           </div>
+
+       </div>
+     </div>
+      <!-- END OF HEADING PART________DO NOT CHANGE -->
+      <br><br>
+
+      <h3>Welcome {{e}}</h3>
+
+      <div style="border:2px solid black;border-radius:5%;box-shadow:5px 5px 8px #000;background-color:#ff6666;" class="container" >
+  <br><br>
+  <div class="row center">
+  <hr>
+  <h6 style="font-weight:bold;color:white">&copy; 2018<br> Developed and designed by Shebin Silvister</h56>
+  </div>
+
+
+        <!--JavaScript at end of body for optimized loading-->
+  <script src="phoneno-international-format.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+  </body>
+  </html>
